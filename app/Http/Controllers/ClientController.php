@@ -62,7 +62,7 @@ class ClientController extends Controller
             $client->street_no = $request->street_no;
             $client->street_address = $request->street_address;
             $client->city = $request->city;
-            $client->status =  $request->has("status");
+            $client->status = $request->has("status");
             $client->save();
 
             return redirect('/Client');
@@ -118,10 +118,23 @@ class ClientController extends Controller
             $client->street_no = $request->street_no;
             $client->street_address = $request->street_address;
             $client->city = $request->city;
-            $client->status =  $request->has("status");
+            $client->status = $request->has("status");
             $client->save();
 
 
+            return redirect('/Client');
+        } catch (\Exception $e) {
+
+            return $e->getMessage();
+        }
+    }
+
+    //delete client
+    public function delete($client_no)
+    {
+        try {
+            $client = ClientModel::find($client_no);
+            $client->delete();
             return redirect('/Client');
         } catch (\Exception $e) {
 

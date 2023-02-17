@@ -118,7 +118,9 @@
                     <div class="form-group">
                         <label class="col-form-label">Is Active<span style="color: red">*</span> </label>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="status" name="status" checked>
+                            <input class="form-check-input" type="checkbox" id="status" name="status"
+                            @if($client->status) checked @endif
+                            >
                         </div>
                     </div>
                 </div>
