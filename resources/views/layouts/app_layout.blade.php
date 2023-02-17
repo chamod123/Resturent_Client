@@ -39,6 +39,21 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/demo.css') }}" rel="stylesheet">
 
+    <style>
+        table.dataTable thead .sorting:after,
+        table.dataTable thead .sorting:before,
+        table.dataTable thead .sorting_asc:after,
+        table.dataTable thead .sorting_asc:before,
+        table.dataTable thead .sorting_asc_disabled:after,
+        table.dataTable thead .sorting_asc_disabled:before,
+        table.dataTable thead .sorting_desc:after,
+        table.dataTable thead .sorting_desc:before,
+        table.dataTable thead .sorting_desc_disabled:after,
+        table.dataTable thead .sorting_desc_disabled:before {
+            bottom: .5em;
+        }
+    </style>
+
 </head>
 
 
@@ -78,9 +93,9 @@
                         </div>
                         <div class="sidebar-header">
                             <div class="user-pic">
-                                {{--                            <img class="img-responsive img-rounded"--}}
-                                {{--                                 src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"--}}
-                                {{--                                 alt="User picture">--}}
+                                <img style="height: 50px" class="img-responsive img-rounded"
+                                     src="{{ asset('images/user.png') }}"
+                                     alt="User picture">
                             </div>
                             <div class="user-info">
       <span class="user-name">{{ Auth::user()->name }}
@@ -269,6 +284,19 @@
 
     });
 
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#selectedColumn').DataTable({
+            "aaSorting": [],
+            columnDefs: [{
+                orderable: false,
+                targets: 3
+            }]
+        });
+        $('.dataTables_length').addClass('bs-select');
+    });
 </script>
 </body>
 
