@@ -98,6 +98,12 @@
                                         <span>Dashboard</span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="/Client">
+                                        <i class="fa fa-calendar"></i>
+                                        <span>Client</span>
+                                    </a>
+                                </li>
                                 <li class="sidebar-dropdown">
                                     <a href="#">
                                         <i class="fa fa-chart-line"></i>
@@ -126,12 +132,7 @@
                                         <span>Tables</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-calendar"></i>
-                                        <span>Client</span>
-                                    </a>
-                                </li>
+
                                 <li>
                                     <a href="#">
                                         <i class="fa fa-calendar"></i>
