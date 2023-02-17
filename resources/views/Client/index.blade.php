@@ -7,7 +7,7 @@
         <br>
         <div class="row">
             <h1 class="col-md-8" >Clients</h1>
-            <div class="col-md-4"><a href="#" class="btn" style="color: white;background-color: black">Create New</a></div>
+            <div class="col-md-4"><a href="/Client/NewClient" class="btn btn-dark" >Create New</a></div>
         </div>
 
 

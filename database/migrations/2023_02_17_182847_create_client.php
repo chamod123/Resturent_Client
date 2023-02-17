@@ -25,7 +25,7 @@ class CreateClient extends Migration
             $table->string('street_address');
             $table->string('city');
             $table->boolean('status')->default(1);
-            $table->timestamp('failed_at')->useCurrent();
+            $table->timestamps();
         });
     }
 
