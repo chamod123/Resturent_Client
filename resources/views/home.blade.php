@@ -1,24 +1,52 @@
-@extends('layouts.app')
+@extends('layouts.app_layout')
 
 @section('content')
-<div class="container">
-    <passport-clients>Menu</passport-clients>
-</div>
+    <div class="container">
+        <br>
+        <div style="background-color: white">
+            <div style="text-align: center">
+                <H4>Orders</H4>
+                <label style="color: #1d68a7">1 FEBRUARY,2023 - 28 FEBRUARY,2023</label>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div style="background-color:#1d68a7;border-radius: 10px;height: 30px;margin: 10px">
+                        <div class="row" style="color: white;text-align: center;padding: 5px">
+                            <div class="col-md-8"> Total Orders</div>
+                            <div class="col-md-4"> 40</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div style="background-color:#1da754;border-radius: 10px;height: 30px;margin: 10px">
+                        <div class="row" style="color: white;text-align: center;padding: 5px">
+                            <div class="col-md-8"> Total Revenue</div>
+                            <div class="col-md-4"> 40</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div style="background-color:#ac84ff;border-radius: 10px;height: 30px;margin: 10px">
+                        <div class="row" style="color: white;text-align: center;padding: 5px">
+                            <div class="col-md-8"> Total Customers</div>
+                            <div class="col-md-4"> 40</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div style="background-color:#ff529a;border-radius: 10px;height: 30px;margin: 10px">
+                        <div class="row" style="color: white;text-align: center;padding: 5px">
+                            <div class="col-md-8"> Cancel Revenue</div>
+                            <div class="col-md-4"> 40</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 @endsection
-
-<div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-</div>
