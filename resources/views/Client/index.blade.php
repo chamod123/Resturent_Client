@@ -37,7 +37,7 @@
                     <td>{{$client->email}}</td>
                     <td>@if($client->status) <span>Active</span> @else <span>Inactive</span> @endif</td>
                     <td>
-                        <a class="btn" href="#" style="background-color: #0d56ff;color: white"><i class="fa fa-pencil" aria-hidden="false"></i></a>
+                        <a class="btn" href="/Client/{{$client->id}}/Edit" style="background-color: #0d56ff;color: white"><i class="fa fa-pencil" aria-hidden="false"></i></a>
                         <a class="btn" href="#" style="background-color: #c71111;color: white"><i class="fa fa-trash" aria-hidden="false"></i></a>
                         <a class="btn" href="#" style="background-color: #000000;color: white"><i class="fa fa-eye" aria-hidden="false"></i></a>
                     </td>

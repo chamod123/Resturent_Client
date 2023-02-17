@@ -31,3 +31,9 @@ Route::get('/Client/NewClient', 'ClientController@create');
 
 //save new client
 Route::post('/Client/Save', 'ClientController@store');
+
+//view edit client details
+Route::get('/Client/{id}/Edit', 'ClientController@view_edit');
+
+//edit client data
+Route::post('/Client/Update', 'ClientController@edit');

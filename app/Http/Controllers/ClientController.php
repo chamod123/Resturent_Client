@@ -71,4 +71,62 @@ class ClientController extends Controller
             return $e->getMessage();
         }
     }
+
+    //view edit client screen
+    public function view_edit($client_no)
+    {
+        try {
+            $client = ClientModel::find($client_no);
+            return view('Client.edit',
+                ['client' => $client
+                ]);
+        } catch (\Exception $e) {
+
+            return $e->getMessage();
+        }
+    }
+
+    //update client
+    public function edit(Request $request)
+    {
+        try {
+
+            $validator = Validator::make($request->all(), [
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'contact' => 'required',
+                'email' => 'required',
+                'gender' => 'required',
+                'dob' => 'required',
+                'street_no' => 'required',
+                'street_address' => 'required',
+                'city' => 'required',
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json(['errors' => $validator->getMessageBag()->toArray()], 200);
+            }
+
+            $client = ClientModel::find($request->client_no);
+
+            $client->first_name = $request->first_name;
+            $client->last_name = $request->last_name;
+            $client->contact = $request->contact;
+            $client->email = $request->email;
+            $client->gender = $request->gender;
+            $client->dob = $request->dob;
+            $client->street_no = $request->street_no;
+            $client->street_address = $request->street_address;
+            $client->city = $request->city;
+            $client->status =  $request->has("status");
+            $client->save();
+
+
+            return redirect('/Client');
+        } catch (\Exception $e) {
+
+            return $e->getMessage();
+        }
+    }
+
 }
