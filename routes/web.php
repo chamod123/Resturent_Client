@@ -36,3 +36,6 @@ Route::post('/Client/Update', 'ClientController@edit');
 
 //delete client data
 Route::get('/Client/{id}/Delete', 'ClientController@delete');
+
+//delete client data
+Route::get('/Client/{id}/View', 'ClientController@view_data');

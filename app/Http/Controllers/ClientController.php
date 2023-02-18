@@ -135,11 +135,26 @@ class ClientController extends Controller
         try {
             $client = ClientModel::find($client_no);
             $client->delete();
-            return redirect('/Client');
+            return 'sucess';
         } catch (\Exception $e) {
 
             return $e->getMessage();
         }
     }
+
+    //view client details
+    public function view_data($client_no)
+    {
+        try {
+            $client = ClientModel::find($client_no);
+            return $client;
+        } catch (\Exception $e) {
+
+            return $e->getMessage();
+        }
+    }
+
+
+
 
 }
