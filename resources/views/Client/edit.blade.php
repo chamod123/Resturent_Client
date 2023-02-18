@@ -126,15 +126,12 @@
                 </div>
 
 
-
-
-
             </div>
 
             <br>
 
             <div class="form-group row">
-                <button type="submit" class="btn btn-dark" >Save</button>
+                <button type="submit" class="btn btn-dark" >Update</button>
             </div>
 
 

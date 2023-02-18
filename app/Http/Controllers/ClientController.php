@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\ClientModel;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class ClientController extends Controller
@@ -64,6 +67,24 @@ class ClientController extends Controller
             $client->city = $request->city;
             $client->status = $request->has("status");
             $client->save();
+
+            //create random password
+            $password = substr(md5(mt_rand()), 0, 10);
+
+            $userClient = new User();
+            $userClient->email = $request->email;
+            $userClient->mobile = $request->get("email");
+            $userClient->password = Hash::make($password);
+            $userClient->save();
+
+            //send mail
+            $data = ['client' => $client,'password' => $password];
+
+            Mail::send('registered_mail', $data, function($message) {
+                $message->to('chamodwijesena77@gmail.com', 'Restaurant')->subject
+                ('You have registered to the Restaurant');
+                $message->from('sample@gmail.com','Restaurant');
+            });
 
             return redirect('/Client');
         } catch (\Exception $e) {

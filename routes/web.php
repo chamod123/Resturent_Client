@@ -39,3 +39,8 @@ Route::get('/Client/{id}/Delete', 'ClientController@delete');
 
 //delete client data
 Route::get('/Client/{id}/View', 'ClientController@view_data');
+
+
+Route::get('sendbasicemail','MailController@basic_email');
+Route::get('sendhtmlemail','MailController@html_email');
+Route::get('sendattachmentemail','MailController@attachment_email');
