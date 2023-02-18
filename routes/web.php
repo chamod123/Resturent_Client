@@ -19,12 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 //client list view
-Route::get('/Client', 'ClientController@index')->name('home');
+Route::get('/Client', 'ClientController@index');
 
 //new client add screen
 Route::get('/Client/NewClient', 'ClientController@create');

@@ -39,6 +39,9 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/demo.css') }}" rel="stylesheet">
 
+    <link rel="stylesheet" href="@sweetalert2/themes/dark/dark.css">
+    <script src="sweetalert2/dist/sweetalert2.min.js"></script>
+
     <style>
         table.dataTable thead .sorting:after,
         table.dataTable thead .sorting:before,
@@ -246,6 +249,7 @@
 
 
 <footer class="credit">Author: Puskar Adhikari - Distributed By: <a title="Awesome web design code & scripts" href="https://www.codehim.com?source=demo-page" target="_blank">CodeHim</a></footer>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
     jQuery(function ($) {
@@ -298,6 +302,10 @@
         $('.dataTables_length').addClass('bs-select');
     });
 </script>
+
+
+@yield('footer_content')
+
 </body>
 
 

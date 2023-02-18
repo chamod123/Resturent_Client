@@ -36,7 +36,8 @@
                     <td>@if($client->status) <span>Active</span> @else <span>Inactive</span> @endif</td>
                     <td>
                         <a class="btn" href="/Client/{{$client->id}}/Edit" style="background-color: #0d56ff;color: white"><i class="fa fa-pencil" aria-hidden="false"></i></a>
-                        <a class="btn" href="/Client/{{$client->id}}/Delete" style="background-color: #c71111;color: white"><i class="fa fa-trash" aria-hidden="false"></i></a>
+{{--                        <a class="btn" href="/Client/{{$client->id}}/Delete" style="background-color: #c71111;color: white"><i class="fa fa-trash" aria-hidden="false"></i></a>--}}
+                        <a class="btn" onclick="delete_client('{{$client->id}}')" style="background-color: #c71111;color: white"><i class="fa fa-trash" aria-hidden="false"></i></a>
                         <a class="btn" href="#" style="background-color: #000000;color: white"><i class="fa fa-eye" aria-hidden="false"></i></a>
                     </td>
                 </tr>
@@ -49,3 +50,56 @@
 
 
 @endsection
+
+
+
+@section('footer_content')
+
+    <script>
+        function delete_client(client_id){
+            swal({
+                title: "Are you sure?",
+                text: "Do you want to Delete the Selected Client",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                // showCancelButton: true,
+                // confirmButtonColor: '#3085d6',
+                // cancelButtonColor: '#d33',
+                // confirmButtonText: 'Yes, delete it!'
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+
+                        $.ajax({
+                            url: '/Client/'+client_id+'/Delete',
+                            type: 'get',
+                            data: {},
+                            // beforeSend: function () {
+                                // $("#loading-image").show();
+                            // },
+                            success: function (data) {
+                                swal("Client deleted!", {
+                                    icon: "success",
+                                });
+                                location.reload();
+                            },
+                            error: function () {
+                                swal("Client Not Deleted!");
+                            }
+                        });
+
+                    } else {
+                        swal("Client Not Deleted!");
+                    }
+                });
+
+        }
+    </script>
+
+
+@endsection
+
+
+
+
