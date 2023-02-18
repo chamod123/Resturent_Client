@@ -73,9 +73,35 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="col-form-label">Date Of Birth <span style="color: red">*</span> </label>
-                        <div>
-                            <input class="form-control" required type="date"  name="dob"
-                                   id="dob">
+                        <div class="row">
+{{--                            <input class="form-control" required type="date"  name="dob"--}}
+{{--                                   id="dob">--}}
+
+
+                                <div class="col-sm-3">
+
+                                        <input onkeyup="dateVlidation()" name="date" id="date" maxlength="2" class="form-control"
+                                               placeholder="DD">
+                                        <span id="date_validation"   style="color: red">
+                        <i>Valid only 1 - 31 </i>
+                    </span>
+                                </div>
+
+                                <div class="col-sm-3">
+                                        <input onkeyup="monthVlidation()" name="month" maxlength="2" id="month" class="form-control"
+                                               placeholder="MM">
+                                        <span id="month_validation"  class="invalid-feedback" style="color: red">
+                        <i>Valid only 1 - 12 </i>
+                    </span>
+                                </div>
+                                <div class="col-sm-3">
+
+                                        {{--<label class="col-sm-3 control-label">Year</label>--}}
+                                        <input required type="number" maxlength="4"
+                                               class="form-control ss-item-required" name="year" id="year" placeholder="YYYY">
+
+
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -134,4 +160,27 @@
 
         </form>
     </div>
+@endsection
+
+@section('footer_content')
+<script>
+    $("#date_validation").hide();
+    $("#month_validation").hide();
+
+    function dateVlidation() {
+        if ($("#date").val() < 0 || $("#date").val() > 31) {
+            $("#date_validation").show();
+        } else {
+            $("#date_validation").hide();
+        }
+    }
+
+    function monthVlidation() {
+        if ($("#month").val() < 0 || $("#month").val() > 12) {
+            $("#month_validation").show();
+        } else {
+            $("#month_validation").hide();
+        }
+    }
+</script>
 @endsection

@@ -45,7 +45,7 @@ class ClientController extends Controller
                 'contact' => 'required',
                 'email' => 'required',
                 'gender' => 'required',
-                'dob' => 'required',
+//                'dob' => 'required',
                 'street_no' => 'required',
                 'street_address' => 'required',
                 'city' => 'required',
@@ -55,13 +55,21 @@ class ClientController extends Controller
                 return response()->json(['errors' => $validator->getMessageBag()->toArray()], 200);
             }
 
+            $date = $request->get("date");
+            $month = $request->get("month");
+            $year = $request->get("year");
+
+            $dob = $year . "-" . $month . "-" . $date;
+
+//            return $dob;
+
             $client = new ClientModel();
             $client->first_name = $request->first_name;
             $client->last_name = $request->last_name;
             $client->contact = $request->contact;
             $client->email = $request->email;
             $client->gender = $request->gender;
-            $client->dob = $request->dob;
+            $client->dob = $dob;
             $client->street_no = $request->street_no;
             $client->street_address = $request->street_address;
             $client->city = $request->city;
@@ -72,11 +80,11 @@ class ClientController extends Controller
             $password = substr(md5(mt_rand()), 0, 10);
 
             $userClient = new User();
-            $userClient->email = $request->email;
-            $userClient->mobile = $request->get("email");
+            $userClient->name = $request->first_name;
+            $userClient->email = $request->get("email");
             $userClient->password = Hash::make($password);
             $userClient->save();
-
+            try {
             //send mail
             $data = ['client' => $client,'password' => $password];
 
@@ -85,6 +93,10 @@ class ClientController extends Controller
                 ('You have registered to the Restaurant');
                 $message->from('sample@gmail.com','Restaurant');
             });
+        } catch (\Exception $e) {
+
+
+        }
 
             return redirect('/Client');
         } catch (\Exception $e) {
